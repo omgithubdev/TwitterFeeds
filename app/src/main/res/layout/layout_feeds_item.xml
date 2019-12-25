@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+
+        <variable
+            name="feeds"
+            type="com.omagrahari.demotwitter.entity.Tweets" />
+
+        <variable
+            name="user"
+            type="com.omagrahari.demotwitter.entity.User" />
+    </data>
+
+    <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:fresco="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/space_x_2">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="@dimen/space_x_3">
+
+            <com.facebook.drawee.view.SimpleDraweeView
+                android:id="@+id/ivProfile"
+                android:layout_width="@dimen/space_x_10"
+                android:layout_height="@dimen/space_x_10"
+                app:imageFresco="@{user.profile_image_url}"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                fresco:placeholderImage="@drawable/placeholder_profile" />
+
+            <TextView
+                android:id="@+id/tvName"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/space_x_3"
+                android:text="@{user.name}"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_18"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/ivProfile"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="Om Agrahari" />
+
+            <TextView
+                android:id="@+id/tvDesc"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/space_x_3"
+                android:text="@{user.description}"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_12"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/ivProfile"
+                app:layout_constraintTop_toBottomOf="@+id/tvName"
+                tools:text="Om Agrahari" />
+
+            <TextView
+                android:id="@+id/tvTweet"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/space_x_3"
+                android:layout_marginTop="@dimen/space_x_3"
+                android:autoLink="web"
+                android:text="@{feeds.text}"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_16"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/ivProfile"
+                app:layout_constraintTop_toBottomOf="@+id/tvDesc"
+                tools:text="Om Agrahari" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+</layout>
